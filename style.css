@@ -355,7 +355,10 @@ model-viewer.viewer--switching {
 
 /* ── CTA button (sticky na dole) ───────────────────────────────────── */
 .cta {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   position: sticky;
   bottom: 0;
   margin: 12px;
