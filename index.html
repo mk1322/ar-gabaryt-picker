@@ -40,16 +40,22 @@
     </h1>
     <p class="header__subtitle" data-i18n="subtitle">Match your parcel size in AR</p>
     <!-- Language selector -->
-    <select id="langSelect" class="lang-select" aria-label="Language" onchange="setLang(this.value)">
-      <option value="en">English</option>
-      <option value="pl">Polski</option>
-      <option value="it">Italiano</option>
-      <option value="fr">Français</option>
-      <option value="es">Español</option>
-      <option value="pt">Português</option>
-      <option value="nl">Nederlands</option>
-      <option value="be">Belgisch</option>
-    </select>
+    <div class="lang" id="langDropdown">
+      <button class="lang__toggle" onclick="toggleLang()" aria-label="Language" aria-expanded="false">
+        <span id="langCurrent">EN</span>
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <ul class="lang__menu" id="langMenu" role="listbox" aria-label="Language">
+        <li role="option" data-lang="en" onclick="pickLang('en')">English</li>
+        <li role="option" data-lang="pl" onclick="pickLang('pl')">Polski</li>
+        <li role="option" data-lang="it" onclick="pickLang('it')">Italiano</li>
+        <li role="option" data-lang="fr" onclick="pickLang('fr')">Français</li>
+        <li role="option" data-lang="es" onclick="pickLang('es')">Español</li>
+        <li role="option" data-lang="pt" onclick="pickLang('pt')">Português</li>
+        <li role="option" data-lang="nl" onclick="pickLang('nl')">Nederlands</li>
+        <li role="option" data-lang="be" onclick="pickLang('be')">Belgisch</li>
+      </ul>
+    </div>
   </header>
 
   <!-- PODGLĄD 3D -->
@@ -148,12 +154,35 @@
         if (t[key]) el.textContent = t[key];
       });
       document.documentElement.lang = lang === 'be' ? 'nl-BE' : lang;
+      document.getElementById('langCurrent').textContent = lang.toUpperCase();
+      document.querySelectorAll('#langMenu li').forEach(li => {
+        li.classList.toggle('lang__menu-item--active', li.dataset.lang === lang);
+      });
       localStorage.setItem('lang', lang);
     }
 
+    function toggleLang() {
+      const dd = document.getElementById('langDropdown');
+      const open = dd.classList.toggle('lang--open');
+      dd.querySelector('.lang__toggle').setAttribute('aria-expanded', open);
+    }
+
+    function pickLang(lang) {
+      setLang(lang);
+      toggleLang();
+    }
+
+    // Close on outside click
+    document.addEventListener('click', e => {
+      const dd = document.getElementById('langDropdown');
+      if (!dd.contains(e.target)) {
+        dd.classList.remove('lang--open');
+        dd.querySelector('.lang__toggle').setAttribute('aria-expanded', 'false');
+      }
+    });
+
     // Restore saved language
     const savedLang = localStorage.getItem('lang') || 'en';
-    document.getElementById('langSelect').value = savedLang;
     if (savedLang !== 'en') setLang(savedLang);
 
     /* ── Gabaryt selector ── */
