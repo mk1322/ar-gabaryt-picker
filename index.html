@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gabaryt Picker — przymierz paczkę w AR</title>
+  <title>In-The-Box — przymierz paczkę w AR</title>
   <meta name="description" content="Sprawdź rozmiar paczki InPost w rozszerzonej rzeczywistości. Gabaryt A, B i C — zobacz w AR zanim zamówisz.">
   <meta name="theme-color" content="#FFCD00">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Gabaryt Picker — przymierz paczkę w AR">
+  <meta property="og:title" content="In-The-Box — przymierz paczkę w AR">
   <meta property="og:description" content="Sprawdź rozmiar paczki InPost w rozszerzonej rzeczywistości. Gabaryt A, B i C — zobacz w AR zanim zamówisz.">
   <meta property="og:image" content="assets/og-image.png">
   <meta property="og:type" content="website">
@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://ajax.googleapis.com">
 
   <!-- Fonts & scripts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -35,7 +35,7 @@
 
   <!-- HEADER -->
   <header class="header">
-    <h1 class="header__title">Gabaryt Picker</h1>
+    <h1 class="header__title">In-The-Box</h1>
     <p class="header__subtitle">Przymierz rozmiar paczki w AR</p>
   </header>
 
@@ -55,7 +55,7 @@
       shadow-intensity="1"
       camera-orbit="45deg 65deg 2m"
       environment-image="neutral"
-      alt="Model 3D pudełka InPost — Gabaryt B, 190 × 380 × 640 mm"
+      alt="Model 3D pudełka InPost — Gabaryt B, 19 × 38 × 64 cm"
     >
       <!-- Loading skeleton -->
       <div slot="poster" class="poster-skeleton">
@@ -76,31 +76,28 @@
       <button class="card" role="radio" aria-checked="false"
               data-gabaryt="a" data-src="models/gabaryt-a.glb" data-ios="models/gabaryt-a.usdz"
               data-poster="assets/gabaryt-a-poster.webp"
-              data-alt="Model 3D pudełka InPost — Gabaryt A, 80 × 380 × 640 mm"
-              onclick="selectGabaryt(this)" aria-label="Gabaryt A — Płaska paczka, 80 × 380 × 640 mm">
+              data-alt="Model 3D pudełka InPost — Gabaryt A, 8 × 38 × 64 cm"
+              onclick="selectGabaryt(this)" aria-label="Gabaryt A, 8 × 38 × 64 cm, do 25 kg">
         <span class="card__name">Gabaryt A</span>
-        <span class="card__dims">80 × 380 × 640 mm</span>
-        <span class="card__desc">Płaska paczka</span>
+        <span class="card__dims">8 × 38 × 64 cm</span>
         <span class="card__weight">do 25 kg</span>
       </button>
       <button class="card card--active" role="radio" aria-checked="true"
               data-gabaryt="b" data-src="models/gabaryt-b.glb" data-ios="models/gabaryt-b.usdz"
               data-poster="assets/gabaryt-b-poster.webp"
-              data-alt="Model 3D pudełka InPost — Gabaryt B, 190 × 380 × 640 mm"
-              onclick="selectGabaryt(this)" aria-label="Gabaryt B — Średnia paczka, 190 × 380 × 640 mm">
+              data-alt="Model 3D pudełka InPost — Gabaryt B, 19 × 38 × 64 cm"
+              onclick="selectGabaryt(this)" aria-label="Gabaryt B, 19 × 38 × 64 cm, do 25 kg">
         <span class="card__name">Gabaryt B</span>
-        <span class="card__dims">190 × 380 × 640 mm</span>
-        <span class="card__desc">Średnia paczka</span>
+        <span class="card__dims">19 × 38 × 64 cm</span>
         <span class="card__weight">do 25 kg</span>
       </button>
       <button class="card" role="radio" aria-checked="false"
               data-gabaryt="c" data-src="models/gabaryt-c.glb" data-ios="models/gabaryt-c.usdz"
               data-poster="assets/gabaryt-c-poster.webp"
-              data-alt="Model 3D pudełka InPost — Gabaryt C, 410 × 380 × 640 mm"
-              onclick="selectGabaryt(this)" aria-label="Gabaryt C — Duża paczka, 410 × 380 × 640 mm">
+              data-alt="Model 3D pudełka InPost — Gabaryt C, 41 × 38 × 64 cm"
+              onclick="selectGabaryt(this)" aria-label="Gabaryt C, 41 × 38 × 64 cm, do 25 kg">
         <span class="card__name">Gabaryt C</span>
-        <span class="card__dims">410 × 380 × 640 mm</span>
-        <span class="card__desc">Duża paczka</span>
+        <span class="card__dims">41 × 38 × 64 cm</span>
         <span class="card__weight">do 25 kg</span>
       </button>
     </div>
@@ -132,8 +129,7 @@
           </svg>
         </div>
         <span class="compare__name">Gabaryt A</span>
-        <span class="compare__dims">80 × 380 × 640 mm</span>
-        <span class="compare__desc">Płaska paczka</span>
+        <span class="compare__dims">8 × 38 × 64 cm</span>
       </div>
 
       <div class="compare__item" data-gabaryt="b">
@@ -144,8 +140,7 @@
           </svg>
         </div>
         <span class="compare__name">Gabaryt B</span>
-        <span class="compare__dims">190 × 380 × 640 mm</span>
-        <span class="compare__desc">Średnia paczka</span>
+        <span class="compare__dims">19 × 38 × 64 cm</span>
       </div>
 
       <div class="compare__item" data-gabaryt="c">
@@ -156,8 +151,7 @@
           </svg>
         </div>
         <span class="compare__name">Gabaryt C</span>
-        <span class="compare__dims">410 × 380 × 640 mm</span>
-        <span class="compare__desc">Duża paczka</span>
+        <span class="compare__dims">41 × 38 × 64 cm</span>
       </div>
     </div>
 

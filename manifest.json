@@ -1,6 +1,6 @@
 {
-  "name": "Gabaryt Picker – przymierz paczkę w AR",
-  "short_name": "Gabaryt Picker",
+  "name": "In-The-Box – przymierz paczkę w AR",
+  "short_name": "In-The-Box",
   "description": "Sprawdź rozmiar paczki InPost w rozszerzonej rzeczywistości",
   "start_url": ".",
   "display": "standalone",
