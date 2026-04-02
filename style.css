@@ -218,12 +218,54 @@ body {
   opacity: 1;
   pointer-events: auto;
 }
-.credit-overlay__text {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
+.credit-overlay__card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 28px 24px;
+  margin: 24px;
+  max-width: 340px;
   text-align: center;
-  padding: 20px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.credit-overlay__logo {
+  height: 20px;
+  width: auto;
+  color: var(--dark);
+}
+
+.credit-overlay__desc {
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--gray-text);
+}
+
+.credit-overlay__author {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--dark);
+  opacity: 0.5;
+}
+
+.credit-overlay__close {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid var(--gray-light);
+  border-radius: var(--radius-sm);
+  background: none;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--dark);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.credit-overlay__close:hover {
+  background: var(--gray-bg);
 }
 
 /* ── Viewer AR button (on the 3D preview) ──────────────────────────── */
