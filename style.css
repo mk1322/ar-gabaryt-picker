@@ -245,6 +245,25 @@ body {
   color: var(--gray-text);
 }
 
+.credit-overlay__divider {
+  width: 100%;
+  border: none;
+  height: 1px;
+  background: var(--gray-light);
+}
+
+.credit-overlay__qr-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-text);
+}
+
+.credit-overlay__qr {
+  width: 160px;
+  height: 160px;
+  border-radius: 8px;
+}
+
 .credit-overlay__author {
   font-size: 0.7rem;
   font-weight: 600;
