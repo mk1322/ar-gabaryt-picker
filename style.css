@@ -663,7 +663,7 @@ model-viewer.viewer--switching {
 
 /* Secondary variant (InStore CTA) */
 #cta {
-  margin-bottom: 56px;
+  margin-bottom: 32px;
   background: transparent;
   color: var(--dark);
   border: 2px solid var(--gray-light);
