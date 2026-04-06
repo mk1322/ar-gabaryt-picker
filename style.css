@@ -651,9 +651,20 @@ model-viewer.viewer--switching {
   border-radius: var(--radius);
 }
 
-/* InStore CTA bottom spacing */
+/* Secondary variant (InStore CTA) */
 #cta {
   margin-bottom: 56px;
+  background: transparent;
+  color: var(--dark);
+  border: 2px solid var(--gray-light);
+  box-shadow: none;
+}
+#cta:hover {
+  background: var(--card-hover);
+  border-color: var(--card-border-hover);
+}
+#cta:focus-visible {
+  box-shadow: var(--focus-ring);
 }
 
 /* Dark variant (AR button) */
