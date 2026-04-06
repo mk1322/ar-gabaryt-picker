@@ -221,7 +221,7 @@ body {
 .credit-overlay__card {
   background: var(--card-bg);
   border-radius: 18px;
-  padding: 28px 24px;
+  padding: 28px 24px 34px;
   margin: 24px;
   max-width: 340px;
   text-align: center;
