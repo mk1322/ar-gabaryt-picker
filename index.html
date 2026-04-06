@@ -136,11 +136,12 @@
     </div>
   </section>
 
-  <!-- AR BUTTON -->
+  <!-- AR BUTTON / FALLBACK -->
   <button class="cta cta--dark" id="arBtn" onclick="document.getElementById('viewer').activateAR()">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3,4c0-0.55,0.45-1,1-1h2V1H4C2.35,1,1,2.35,1,4v2h2V4z"/><path d="M20,3c0.55,0,1,0.45,1,1v2h2V4c0-1.65-1.35-3-3-3h-2v2H20z"/><path d="M4,21c-0.55,0-1-0.45-1-1v-2H1v2c0,1.65,1.35,3,3,3h2v-2H4z"/><path d="M20,21c0.55,0,1-0.45,1-1v-2h2v2c0,1.65-1.35,3-3,3h-2v-2H20z"/><path d="M18.25,7.6l-5.5-3.18c-0.46-0.27-1.04-0.27-1.5,0L5.75,7.6C5.29,7.87,5,8.36,5,8.9v6.35c0,0.54,0.29,1.03,0.75,1.3l5.5,3.18c0.46,0.27,1.04,0.27,1.5,0l5.5-3.18c0.46-0.27,0.75-0.76,0.75-1.3V8.9C19,8.36,18.71,7.87,18.25,7.6z M7,14.96v-4.62l4,2.32v4.61L7,14.96z M12,10.93L8,8.61l4-2.31l4,2.31L12,10.93z M13,17.27v-4.61l4-2.32v4.62L13,17.27z"/></svg>
     <span data-i18n="viewAR">View in AR</span>
   </button>
+  <p class="ar-fallback" id="arFallback" data-i18n="noAR">Your device does not support AR :(</p>
 
   <hr class="divider">
 
@@ -196,14 +197,14 @@
     });
     /* ── i18n ── */
     const T = {
-      en: { subtitle:"Match your parcel size in AR", sizeA:"Size A", sizeB:"Size B", sizeC:"Size C", weight:"up to 25 kg", viewAR:"View in AR", buyCTA:"Buy packaging at InStore", loading:"Loading 3D model…", infoDesc:"In-The-Box – find the right parcel size for your products using augmented reality (AR)! Choose a size, then display the box in your surroundings in a quick and easy way. Finally, use the InStore shop to purchase the packaging. Enjoy!", infoClose:"Close", shareQR:"Share with others using QR code" },
-      pl: { subtitle:"Dopasuj gabaryt w AR", sizeA:"Gabaryt A", sizeB:"Gabaryt B", sizeC:"Gabaryt C", weight:"do 25 kg", viewAR:"Zobacz w AR", buyCTA:"Kup opakowanie w InStore", loading:"Ładowanie modelu 3D…", infoDesc:"In-The-Box – dopasuj właściwy gabaryt do produktów, używając rozszerzonej rzeczywistości (AR)! Wybierz rozmiar, a następnie wyświetl pudełko w swoim otoczeniu w prosty i szybki sposób. Na koniec użyj sklepu InStore do zakupu opakowania. Enjoy!", infoClose:"Zamknij", shareQR:"Udostępnij innym używając kodu QR" },
-      it: { subtitle:"Prova la dimensione del pacco in AR", sizeA:"Taglia A", sizeB:"Taglia B", sizeC:"Taglia C", weight:"fino a 25 kg", viewAR:"Vedi in AR", buyCTA:"Acquista imballaggio su InStore", loading:"Caricamento modello 3D…", infoDesc:"In-The-Box – trova la dimensione giusta del pacco per i tuoi prodotti usando la realtà aumentata (AR)! Scegli una taglia, poi visualizza la scatola nel tuo ambiente in modo semplice e veloce. Infine, usa il negozio InStore per acquistare l'imballaggio. Enjoy!", infoClose:"Chiudi", shareQR:"Condividi con altri usando il codice QR" },
-      fr: { subtitle:"Essayez la taille du colis en AR", sizeA:"Taille A", sizeB:"Taille B", sizeC:"Taille C", weight:"jusqu'à 25 kg", viewAR:"Voir en AR", buyCTA:"Acheter l'emballage sur InStore", loading:"Chargement du modèle 3D…", infoDesc:"In-The-Box – trouvez la bonne taille de colis pour vos produits grâce à la réalité augmentée (AR) ! Choisissez une taille, puis affichez la boîte dans votre environnement de manière simple et rapide. Enfin, utilisez la boutique InStore pour acheter l'emballage. Enjoy!", infoClose:"Fermer", shareQR:"Partagez avec d'autres en utilisant le code QR" },
-      es: { subtitle:"Prueba el tamaño del paquete en AR", sizeA:"Tamaño A", sizeB:"Tamaño B", sizeC:"Tamaño C", weight:"hasta 25 kg", viewAR:"Ver en AR", buyCTA:"Comprar embalaje en InStore", loading:"Cargando modelo 3D…", infoDesc:"In-The-Box – encuentra el tamaño de paquete adecuado para tus productos usando realidad aumentada (AR). Elige un tamaño y muestra la caja en tu entorno de forma sencilla y rápida. Por último, usa la tienda InStore para comprar el embalaje. Enjoy!", infoClose:"Cerrar", shareQR:"Comparte con otros usando el código QR" },
-      pt: { subtitle:"Experimente o tamanho da encomenda em AR", sizeA:"Tamanho A", sizeB:"Tamanho B", sizeC:"Tamanho C", weight:"até 25 kg", viewAR:"Ver em AR", buyCTA:"Comprar embalagem na InStore", loading:"A carregar modelo 3D…", infoDesc:"In-The-Box – encontre o tamanho certo de encomenda para os seus produtos usando realidade aumentada (AR)! Escolha um tamanho e visualize a caixa no seu ambiente de forma simples e rápida. Por fim, use a loja InStore para comprar a embalagem. Enjoy!", infoClose:"Fechar", shareQR:"Partilhe com outros usando o código QR" },
-      nl: { subtitle:"Pas de pakketmaat in AR", sizeA:"Maat A", sizeB:"Maat B", sizeC:"Maat C", weight:"tot 25 kg", viewAR:"Bekijk in AR", buyCTA:"Koop verpakking bij InStore", loading:"3D-model laden…", infoDesc:"In-The-Box – vind de juiste pakketmaat voor je producten met augmented reality (AR)! Kies een maat en bekijk de doos in je omgeving op een snelle en eenvoudige manier. Gebruik ten slotte de InStore-winkel om de verpakking te kopen. Enjoy!", infoClose:"Sluiten", shareQR:"Deel met anderen via QR-code" },
-      be: { subtitle:"Pas de pakketmaat in AR", sizeA:"Maat A", sizeB:"Maat B", sizeC:"Maat C", weight:"tot 25 kg", viewAR:"Bekijk in AR", buyCTA:"Koop verpakking bij InStore", loading:"3D-model laden…", infoDesc:"In-The-Box – vind de juiste pakketmaat voor je producten met augmented reality (AR)! Kies een maat en bekijk de doos in je omgeving op een snelle en eenvoudige manier. Gebruik ten slotte de InStore-winkel om de verpakking te kopen. Enjoy!", infoClose:"Sluiten", shareQR:"Deel met anderen via QR-code" },
+      en: { subtitle:"Match your parcel size in AR", sizeA:"Size A", sizeB:"Size B", sizeC:"Size C", weight:"up to 25 kg", viewAR:"View in AR", buyCTA:"Buy packaging at InStore", loading:"Loading 3D model…", infoDesc:"In-The-Box – find the right parcel size for your products using augmented reality (AR)! Choose a size, then display the box in your surroundings in a quick and easy way. Finally, use the InStore shop to purchase the packaging. Enjoy!", infoClose:"Close", shareQR:"Share with others using QR code", noAR:"Your device does not support AR :(" },
+      pl: { subtitle:"Dopasuj gabaryt w AR", sizeA:"Gabaryt A", sizeB:"Gabaryt B", sizeC:"Gabaryt C", weight:"do 25 kg", viewAR:"Zobacz w AR", buyCTA:"Kup opakowanie w InStore", loading:"Ładowanie modelu 3D…", infoDesc:"In-The-Box – dopasuj właściwy gabaryt do produktów, używając rozszerzonej rzeczywistości (AR)! Wybierz rozmiar, a następnie wyświetl pudełko w swoim otoczeniu w prosty i szybki sposób. Na koniec użyj sklepu InStore do zakupu opakowania. Enjoy!", infoClose:"Zamknij", shareQR:"Udostępnij innym używając kodu QR", noAR:"Twoje urządzenie nie pozwala na używanie AR :(" },
+      it: { subtitle:"Prova la dimensione del pacco in AR", sizeA:"Taglia A", sizeB:"Taglia B", sizeC:"Taglia C", weight:"fino a 25 kg", viewAR:"Vedi in AR", buyCTA:"Acquista imballaggio su InStore", loading:"Caricamento modello 3D…", infoDesc:"In-The-Box – trova la dimensione giusta del pacco per i tuoi prodotti usando la realtà aumentata (AR)! Scegli una taglia, poi visualizza la scatola nel tuo ambiente in modo semplice e veloce. Infine, usa il negozio InStore per acquistare l'imballaggio. Enjoy!", infoClose:"Chiudi", shareQR:"Condividi con altri usando il codice QR", noAR:"Il tuo dispositivo non supporta AR :(" },
+      fr: { subtitle:"Essayez la taille du colis en AR", sizeA:"Taille A", sizeB:"Taille B", sizeC:"Taille C", weight:"jusqu'à 25 kg", viewAR:"Voir en AR", buyCTA:"Acheter l'emballage sur InStore", loading:"Chargement du modèle 3D…", infoDesc:"In-The-Box – trouvez la bonne taille de colis pour vos produits grâce à la réalité augmentée (AR) ! Choisissez une taille, puis affichez la boîte dans votre environnement de manière simple et rapide. Enfin, utilisez la boutique InStore pour acheter l'emballage. Enjoy!", infoClose:"Fermer", shareQR:"Partagez avec d'autres en utilisant le code QR", noAR:"Votre appareil ne prend pas en charge AR :(" },
+      es: { subtitle:"Prueba el tamaño del paquete en AR", sizeA:"Tamaño A", sizeB:"Tamaño B", sizeC:"Tamaño C", weight:"hasta 25 kg", viewAR:"Ver en AR", buyCTA:"Comprar embalaje en InStore", loading:"Cargando modelo 3D…", infoDesc:"In-The-Box – encuentra el tamaño de paquete adecuado para tus productos usando realidad aumentada (AR). Elige un tamaño y muestra la caja en tu entorno de forma sencilla y rápida. Por último, usa la tienda InStore para comprar el embalaje. Enjoy!", infoClose:"Cerrar", shareQR:"Comparte con otros usando el código QR", noAR:"Tu dispositivo no es compatible con AR :(" },
+      pt: { subtitle:"Experimente o tamanho da encomenda em AR", sizeA:"Tamanho A", sizeB:"Tamanho B", sizeC:"Tamanho C", weight:"até 25 kg", viewAR:"Ver em AR", buyCTA:"Comprar embalagem na InStore", loading:"A carregar modelo 3D…", infoDesc:"In-The-Box – encontre o tamanho certo de encomenda para os seus produtos usando realidade aumentada (AR)! Escolha um tamanho e visualize a caixa no seu ambiente de forma simples e rápida. Por fim, use a loja InStore para comprar a embalagem. Enjoy!", infoClose:"Fechar", shareQR:"Partilhe com outros usando o código QR", noAR:"O seu dispositivo não suporta AR :(" },
+      nl: { subtitle:"Pas de pakketmaat in AR", sizeA:"Maat A", sizeB:"Maat B", sizeC:"Maat C", weight:"tot 25 kg", viewAR:"Bekijk in AR", buyCTA:"Koop verpakking bij InStore", loading:"3D-model laden…", infoDesc:"In-The-Box – vind de juiste pakketmaat voor je producten met augmented reality (AR)! Kies een maat en bekijk de doos in je omgeving op een snelle en eenvoudige manier. Gebruik ten slotte de InStore-winkel om de verpakking te kopen. Enjoy!", infoClose:"Sluiten", shareQR:"Deel met anderen via QR-code", noAR:"Je apparaat ondersteunt geen AR :(" },
+      be: { subtitle:"Pas de pakketmaat in AR", sizeA:"Maat A", sizeB:"Maat B", sizeC:"Maat C", weight:"tot 25 kg", viewAR:"Bekijk in AR", buyCTA:"Koop verpakking bij InStore", loading:"3D-model laden…", infoDesc:"In-The-Box – vind de juiste pakketmaat voor je producten met augmented reality (AR)! Kies een maat en bekijk de doos in je omgeving op een snelle en eenvoudige manier. Gebruik ten slotte de InStore-winkel om de verpakking te kopen. Enjoy!", infoClose:"Sluiten", shareQR:"Deel met anderen via QR-code", noAR:"Je apparaat ondersteunt geen AR :(" },
     };
 
     function setLang(lang) {
@@ -315,6 +316,19 @@
         if (arActive && e.touches.length >= 2) e.preventDefault();
       }, { passive: false });
     })();
+
+    /* ── AR support detection ── */
+    document.getElementById('viewer').addEventListener('ar-status', (e) => {
+      // If ar-status fires, AR is supported — already showing button
+    });
+    // Check after model-viewer loads: if no AR, swap button for message
+    setTimeout(() => {
+      const v = document.getElementById('viewer');
+      if (!v.canActivateAR) {
+        document.getElementById('arBtn').style.display = 'none';
+        document.getElementById('arFallback').style.display = 'block';
+      }
+    }, 1000);
 
     /* ── Service Worker ── */
     if ('serviceWorker' in navigator) {

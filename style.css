@@ -617,6 +617,17 @@ model-viewer.viewer--switching {
   margin: 0 12px;
 }
 
+/* ── AR fallback message ───────────────────────────────────────────── */
+.ar-fallback {
+  display: none;
+  text-align: center;
+  padding: 14px 12px;
+  margin: 12px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--gray-text);
+}
+
 /* ── CTA button (sticky na dole) ───────────────────────────────────── */
 .cta {
   display: flex;
