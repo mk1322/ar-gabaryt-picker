@@ -54,8 +54,7 @@ body {
   flex-direction: column;
   height: 100dvh;
   height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 /* ── Global focus ──────────────────────────────────────────────────── */
