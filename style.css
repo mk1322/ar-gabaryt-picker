@@ -369,6 +369,9 @@ model-viewer {
   border-radius: var(--radius);
   background: var(--viewer-bg);
   --poster-color: transparent;
+  --progress-bar-color: transparent;
+  --progress-bar-height: 0;
+  --progress-mask: transparent;
   transition: opacity 0.2s ease;
 }
 
